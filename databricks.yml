@@ -1,0 +1,25 @@
+bundle:
+  name: contract-revenue-1
+
+include:
+  - resources/*.yml
+  - resources/**/*.yml
+
+
+targets:
+  dev:
+    mode: development
+    workspace:
+      host: https://adb-7405610441891523.3.azuredatabricks.net
+
+  qa:
+    mode: development
+    workspace:
+      host: https://adb-7405610441891523.3.azuredatabricks.net
+
+  prod:
+    mode: production
+    workspace:
+      host: https://adb-7405608719410709.9.azuredatabricks.net
+    run_as:
+      service_principal_name: ${var.spn_id}
