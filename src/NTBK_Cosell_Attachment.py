@@ -44,3 +44,4 @@ df_clean.write \
     .saveAsTable("silver.cosell_attachment_processed")
 
 print("NB_Cosell_Attachment completed")
+print("hello world")
