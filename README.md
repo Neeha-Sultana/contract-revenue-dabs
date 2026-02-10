@@ -20,8 +20,8 @@ Before the CLI can talk to Azure, you had to set these environment variables in 
 
 ```powershell
 # Set Service Principal Credentials
-$env:ARM_CLIENT_ID = "d513eb19-9395-43a7-b447-b819afb57889"
-$env:ARM_TENANT_ID = "569a4924-3fb4-46dd-a652-1cdbfb239032"
+$env:ARM_CLIENT_ID = ""
+$env:ARM_TENANT_ID = ""
 $env:ARM_CLIENT_SECRET = "YOUR_SECRET_VALUE"
 
 # Optional: Set the specific profile to avoid 'multiple profiles' error
