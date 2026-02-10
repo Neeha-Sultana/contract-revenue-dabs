@@ -8,15 +8,13 @@
 
 ## Deployment CLI Commands
 
-Since you’ve been working between **VS Code** and the **Databricks CLI**, here is a organized list of all the commands you used to set up, validate, and deploy your **Contract Revenue** bundle.
-
-I've categorized them so you can copy-paste them into your **README.md** or keep them for your personal notes.
+Since we’ve been working between **VS Code** and the **Databricks CLI**, here is a organized list of all the commands we have used to set up, validate, and deploy our **Contract Revenue** bundle.
 
 ---
 
 ### 1. Authentication & Setup
 
-Before the CLI can talk to Azure, you had to set these environment variables in your PowerShell terminal.
+Before the CLI can talk to Azure, we had to set these environment variables in our PowerShell terminal.
 
 ```powershell
 # Set Service Principal Credentials
