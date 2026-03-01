@@ -1,0 +1,44 @@
+resources:
+  jobs:
+    FactOpportunityManagement:
+      name: "FactOpportunityManagement"
+      trigger:
+        pause_status: UNPAUSED
+        periodic:
+          interval: 1
+          unit: DAYS
+      tasks:
+        - task_key: Cosell
+          notebook_task:
+            notebook_path: "${var.notebook_base_path}/NTBK_Cosell_Attachment.py"
+            source: WORKSPACE
+          job_cluster_key: Job_cluster
+        - task_key: FactOpportunity
+          depends_on:
+            - task_key: Cosell
+          notebook_task:
+            notebook_path: "${var.notebook_base_path}/NTBK_FactOpportunityManagement.py"
+            source: WORKSPACE
+          job_cluster_key: Job_cluster
+        - task_key: Redesign_tables
+          depends_on:
+            - task_key: FactOpportunity
+          notebook_task:
+            notebook_path: "${var.notebook_base_path}/NTBK_Cosell_Redesign_Tables.py"
+            source: WORKSPACE
+          job_cluster_key: Job_cluster
+      job_clusters:
+        - job_cluster_key: Job_cluster
+          new_cluster:
+            spark_version: "16.4.x-scala2.12"
+            instance_pool_id: ${var.instance_pool_id}
+            driver_instance_pool_id: ${var.instance_pool_id}
+            # policy_id: ${var.cluster_policy_id} # Only keep if the ID is valid for QA
+            spark_env_vars:
+              PYSPARK_PYTHON: /databricks/python3/bin/python3
+            num_workers: 8
+            # DO NOT add azure_attributes here when using a pool
+
+
+
+      

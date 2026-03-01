@@ -1,0 +1,28 @@
+targets:
+  qa:
+    variables:
+      env: QA
+      instance_pool_id: "0212-061211-becks2-pool-ujs2531e" 
+      cluster_policy_id: "001C724E61FB8C8E"
+
+    #permissions:
+      #- group_name: users
+        #level: CAN_RUN
+      #- group_name: users
+       # level: CAN_VIEW
+
+    mode: production
+    
+    workspace:
+      host: https://adb-7405614680429072.12.azuredatabricks.net
+      # Explicitly use your profile to avoid the 'Multiple Profiles' error
+      profile: db-qa 
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
+    
+    # This solves your notebook access error!
+    run_as:
+      user_name: ${workspace.current_user.userName}
+
+    presets:
+      trigger_pause_status: PAUSED
+      name_prefix: '[QA] '

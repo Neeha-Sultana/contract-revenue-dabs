@@ -1,0 +1,8 @@
+  targets: 
+    prod:
+      mode: production
+      workspace:
+        host: https://adb-7405608719410709.9.azuredatabricks.net
+      
+      run_as:
+        service_principal_name: ${var.spn_id}

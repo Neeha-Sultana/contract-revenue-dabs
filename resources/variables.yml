@@ -1,11 +1,25 @@
 # variables.yml
 variables:
+  env:
+    description: "The environment name (e.g., dev, qa, prod)"
+    default: "dev"  # This is the fallback value
+
   spn_id:
     description: "The Application ID of your Service Principal"
     default: "d513eb19-9395-43a7-b447-b819afb57889" # Replace with your SPN ID
+
   catalog_name:
     description: "Target catalog for data"
     default: "main_dev"
+
   notebook_base_path:
     description: "Base path for notebooks"
     default: "../../src" # Relative to where the job yml sits
+
+  instance_pool_id:
+   description: "The ID of the instance pool to use for the job cluster"
+    #default: "0212-05-koala2-pool-jblwnzqa"
+  
+  cluster_policy_id:
+   description: "The ID of the cluster policy (optional)"
+    #default: "333" # Replace with your actual policy ID if needed
